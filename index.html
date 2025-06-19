@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Starlink Colombia</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100%;
+      
+      color: white;
+      overflow-x: hidden;
+    }
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .container {
+      padding: 20px;
+      background-color: rgba(0,0,0,0.4);
+      min-height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+    }
+    .logo {
+      font-size: 28px;
+      color: #00e6c3;
+      margin: 10px 0 20px 0;
+      animation: shake 1.2s infinite;
+    }
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-2px); }
+      50% { transform: translateX(2px); }
+      75% { transform: translateX(-2px); }
+      100% { transform: translateX(0); }
+    }
+    .intro-video {
+      width: 90%;
+      max-width: 400px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 2px solid #00e6c3;
+    }
+    .toggle-section {
+      margin: 10px auto;
+      width: 100%;
+      max-width: 500px;
+      text-align: left;
+    }
+    .toggle-button {
+      background-color: #00b894;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .toggle-content {
+      display: none;
+      margin-top: 10px;
+    }
+    video.selector {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #00b894;
+    }
+    .download-btn {
+      margin-top: 30px;
+      background-color: #0984e3;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .promo-text {
+      margin-top: 20px;
+      font-size: 16px;
+      max-width: 600px;
+      color: #ffffff;
+    }
+    .soporte-title {
+      margin-top: 40px;
+      font-size: 20px;
+      color: #00e6c3;
+    }
+    .whatsapp-icon {
+      margin-top: 10px;
+    }
+    .whatsapp-icon img {
+      width: 60px;
+      height: 60px;
+    }
+    @media screen and (max-width: 600px) {
+      .logo { font-size: 22px; }
+      .download-btn { width: 90%; }
+      .whatsapp-icon img { width: 50px; height: 50px; }
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop playsinline id="bgVideo" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+    <source src="media/fondo.mp4" type="video/mp4">
+  </video>
+
+  <div class="container">
+    <div class="logo">Starlink Colombia</div>
+
+    <video class="intro-video" autoplay muted playsinline loop>
+      <source src="media/intro.mp4" type="video/mp4">
+    </video>
+
+    <div class="toggle-section">
+      <button class="toggle-button" onclick="toggleVideo('video1')">📱 Instalación en Xiaomi (Tutorial de instalación)</button>
+      <div class="toggle-content" id="video1">
+        <video class="selector" controls>
+          <source src="media/video1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="toggle-section">
+      <button class="toggle-button" onclick="toggleVideo('video2')">📱 Instalación en otros dispositivos (Tutorial de instalación)</button>
+      <div class="toggle-content" id="video2">
+        <video class="selector" controls>
+          <source src="media/video2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <a href="media/Starlink.apk" download>
+      <button class="download-btn">⬇️ Descargar App</button>
+    </a>
+
+    <div class="promo-text">
+      Bienvenidos a la nueva era de la SIM Satelital, Presiona Descargar App para iniciar
+      esta nueva aventura, mas arriba esta el tutorial de instalacion. Dudas, escribenos a Whatsapp
+
+    </div>
+
+    <div class="soporte-title">Soporte</div>
+    <div class="whatsapp-icon">
+      <a href="https://wa.me/573001112233" target="_blank">
+        <img src="media/whatsapp.png" alt="WhatsApp Chat">
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function toggleVideo(id) {
+      const content = document.getElementById(id);
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
